@@ -1,0 +1,22 @@
+{
+  "auto_apply_on_startup": false,
+  "notify_on_mismatch": true,
+  "polling_interval_seconds": 5,
+  "reset_debounce_seconds": 5,
+  "default_recommendations": {
+    "low_end_gpu": {
+      "width": 1920,
+      "height": 1080,
+      "refresh_rate": 60,
+      "scaling": 100
+    },
+    "high_end_gpu": {
+      "use_max_resolution": true,
+      "use_max_refresh_rate": true,
+      "scaling": 100
+    },
+    "battery_mode": {
+      "max_refresh_rate": 60
+    }
+  }
+}

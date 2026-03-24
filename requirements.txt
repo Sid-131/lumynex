@@ -1,0 +1,4 @@
+pywin32>=306
+PyQt5>=5.15.0
+wmi>=1.5.1
+pyinstaller>=6.0

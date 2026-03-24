@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec.bak
+
+# Runtime user data (generated at runtime — not source)
+config/user_settings.json
+config/event_log.jsonl
+config/reset_history.jsonl
+logs/
+
+# Claude Code internals
+.claude/
+.agent/
+.agents/
+skills-lock.json
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

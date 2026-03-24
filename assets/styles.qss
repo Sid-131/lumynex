@@ -1,0 +1,785 @@
+/* ============================================================
+   Lumynex — White + Purple/Cyan Theme
+   Clean white background · Purple as the single confident accent
+   Layered depth via shadows and border weight, not dark fills
+
+   Color Tokens
+   ─────────────────────────────────────────────────
+   bg-base         #FFFFFF    content area, most card fills
+   bg-subtle       #F7F7FB    alt table rows, input resting state
+   bg-muted        #F0EFF8    card hover, sidebar active bg
+   bg-sidebar      #FAFAFA    sidebar near-white
+   stroke-default  rgba(15,13,26,0.08)    default card border
+   stroke-hover    rgba(15,13,26,0.14)    card/input hover border
+   stroke-topbar   rgba(15,13,26,0.07)    topbar/sidebar dividers
+   stroke-accent   rgba(91,63,191,0.30)   accent card border
+   text-primary    #0F0D1A    headlines, card titles
+   text-secondary  #4A4761    body, data values, table text
+   text-tertiary   #9691AA    metadata, sublabels, placeholders
+   text-disabled   #C8C5D4    disabled labels
+   purple-700      #5B3FBF    primary solid (buttons, active nav)
+   purple-600      #6D52CC    button hover
+   purple-500      #7C5CBF    accent flat, focus ring
+   purple-400      #9B7EDB    focus borders, badge text
+   purple-200      #CABFEE    light badge backgrounds
+   purple-100      #EDE8FA    card accent fill
+   purple-50       #F5F2FD    active nav bg, lightest tint
+   ok-text         #166534    · ok-bg  #DCFCE7  · ok-border  #86EFAC
+   warn-text       #92400E    · warn-bg #FEF3C7  · warn-border #FCD34D
+   err-text        #991B1B    · err-bg  #FEE2E2  · err-border  #FCA5A5
+   run-text        #5B3FBF    · run-bg  #EDE8FA  · run-border  #9B7EDB
+   ============================================================ */
+
+/* ── Base ────────────────────────────────────────────────── */
+
+QWidget {
+    font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+    font-size: 10pt;
+    color: #0F0D1A;
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+QMainWindow, QDialog {
+    background-color: #F7F7FB;
+}
+
+/* ── Icon Sidebar ────────────────────────────────────────── */
+
+#Sidebar {
+    background-color: #FAFAFA;
+    border-right: 1px solid rgba(15, 13, 26, 0.07);
+    min-width: 68px;
+    max-width: 68px;
+}
+
+/* SidebarLogo is now a custom-drawn LumynexSymbol widget — no QSS needed */
+
+#NavButton {
+    background-color: transparent;
+    color: #C8C5D4;
+    text-align: center;
+    padding: 14px 0px;
+    font-size: 15pt;
+    border-radius: 10px;
+    margin: 2px 8px;
+    min-width: 52px;
+    max-width: 52px;
+    min-height: 52px;
+    max-height: 52px;
+}
+
+#NavButton:hover {
+    background-color: #EDE8FA;
+    color: #7C5CBF;
+}
+
+#NavButton[active="true"] {
+    background-color: #F5F2FD;
+    color: #5B3FBF;
+}
+
+/* ── Top Bar ─────────────────────────────────────────────── */
+
+#TopBar {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid rgba(15, 13, 26, 0.07);
+    min-height: 52px;
+    max-height: 52px;
+    padding: 0 24px;
+}
+
+#AppTitle {
+    font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #0F0D1A;
+    letter-spacing: 0.2px;
+}
+
+#AppSubtitle {
+    font-size: 8pt;
+    color: #9691AA;
+    padding-left: 2px;
+}
+
+#SearchBox {
+    background-color: #F7F7FB;
+    color: #4A4761;
+    border: 1px solid rgba(15, 13, 26, 0.08);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 9pt;
+    min-width: 200px;
+    selection-background-color: #EDE8FA;
+    selection-color: #0F0D1A;
+}
+
+#SearchBox:focus {
+    background-color: #FFFFFF;
+    border-color: rgba(91, 63, 191, 0.45);
+    color: #0F0D1A;
+}
+
+#TopBarIcon {
+    background-color: transparent;
+    color: #9691AA;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 13pt;
+    min-width: 36px;
+    max-width: 36px;
+    min-height: 36px;
+    max-height: 36px;
+}
+
+#TopBarIcon:hover {
+    background-color: #F5F2FD;
+    color: #5B3FBF;
+}
+
+/* ── Content area ────────────────────────────────────────── */
+
+#ContentArea {
+    background-color: #F7F7FB;
+    padding: 0;
+}
+
+QScrollArea {
+    background-color: #F7F7FB;
+    border: none;
+}
+
+QScrollArea > QWidget > QWidget {
+    background-color: #F7F7FB;
+}
+
+/* ── Section header ──────────────────────────────────────── */
+
+#SectionHeader {
+    font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0F0D1A;
+    padding: 24px 0 10px 0;
+    background-color: transparent;
+}
+
+#SectionSubheader {
+    font-size: 9pt;
+    color: #9691AA;
+    padding: 0 0 10px 0;
+    background-color: transparent;
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+
+#Card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(15, 13, 26, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+#Card:hover {
+    background-color: #FDFCFF;
+    border-color: rgba(15, 13, 26, 0.13);
+}
+
+#Card[state="ok"] {
+    border-color: #86EFAC;
+    background-color: #FCFFFE;
+}
+
+#Card[state="warning"] {
+    border-color: #FCD34D;
+    background-color: #FFFEF8;
+}
+
+#Card[state="error"] {
+    border-color: #FCA5A5;
+    background-color: #FFFAFA;
+}
+
+#Card[state="accent"] {
+    border-color: rgba(91, 63, 191, 0.28);
+    background-color: #FDFCFF;
+}
+
+#CardIcon {
+    font-size: 22pt;
+    padding: 0 0 8px 0;
+    background-color: transparent;
+    color: #0F0D1A;
+}
+
+#CardTitle {
+    font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
+    font-size: 11pt;
+    font-weight: 600;
+    color: #0F0D1A;
+    background-color: transparent;
+}
+
+#CardValue {
+    font-size: 18pt;
+    font-weight: 600;
+    color: #0F0D1A;
+    font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
+    background-color: transparent;
+    padding: 2px 0;
+}
+
+#CardSubValue {
+    font-size: 9pt;
+    color: #9691AA;
+    background-color: transparent;
+}
+
+#CardBadge {
+    font-size: 8pt;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+#CardBadge[type="good"] {
+    color: #166534;
+    background-color: #DCFCE7;
+    border: 1px solid #86EFAC;
+}
+
+#CardBadge[type="limited"] {
+    color: #92400E;
+    background-color: #FEF3C7;
+    border: 1px solid #FCD34D;
+}
+
+#CardBadge[type="accent"] {
+    color: #5B3FBF;
+    background-color: #EDE8FA;
+    border: 1px solid #CABFEE;
+}
+
+/* ── Data rows ───────────────────────────────────────────── */
+
+#DataKey {
+    font-size: 9pt;
+    color: #9691AA;
+    min-width: 120px;
+    background-color: transparent;
+}
+
+#DataValue {
+    font-size: 9pt;
+    color: #4A4761;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    background-color: transparent;
+}
+
+#DataValueHighlight {
+    font-size: 9pt;
+    color: #5B3FBF;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+#DataValueMatch {
+    font-size: 9pt;
+    color: #166534;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    background-color: transparent;
+}
+
+#DataValueMismatch {
+    font-size: 9pt;
+    color: #92400E;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+#DataValueMuted {
+    font-size: 9pt;
+    color: #C8C5D4;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    background-color: transparent;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+
+QPushButton {
+    background-color: #FFFFFF;
+    color: #4A4761;
+    border: 1px solid rgba(15, 13, 26, 0.12);
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 9pt;
+    font-weight: 500;
+}
+
+QPushButton:hover {
+    background-color: #F7F7FB;
+    color: #0F0D1A;
+    border-color: rgba(15, 13, 26, 0.20);
+}
+
+QPushButton:pressed {
+    background-color: #F0EFF8;
+    color: #4A4761;
+}
+
+QPushButton:disabled {
+    color: #C8C5D4;
+    background-color: #F7F7FB;
+    border-color: rgba(15, 13, 26, 0.06);
+}
+
+/* Apply Settings — solid purple fill */
+#ApplyButton {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #8B5CF6, stop:1 #60A5FA);
+    color: #FFFFFF;
+    border: 1px solid #5B3FBF;
+    border-radius: 8px;
+    padding: 10px 26px;
+    font-size: 10pt;
+    font-weight: 700;
+}
+
+#ApplyButton:hover {
+    background-color: #6D52CC;
+    border-color: #6D52CC;
+}
+
+#ApplyButton:pressed {
+    background-color: #4E35A8;
+    border-color: #4E35A8;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#ApplyButton:disabled {
+    background-color: #F0EFF8;
+    color: #C8C5D4;
+    border-color: #EDE8FA;
+}
+
+/* Fix Display — purple outlined */
+#FixButton {
+    background-color: #FFFFFF;
+    color: #5B3FBF;
+    border: 1px solid #CABFEE;
+    border-radius: 8px;
+    padding: 9px 22px;
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+#FixButton:hover {
+    background-color: #F5F2FD;
+    border-color: #9B7EDB;
+    color: #4E35A8;
+}
+
+#FixButton:pressed {
+    background-color: #EDE8FA;
+    color: #5B3FBF;
+}
+
+#FixButton:disabled {
+    background-color: #F7F7FB;
+    color: #C8C5D4;
+    border-color: rgba(15, 13, 26, 0.06);
+}
+
+/* Soft Reset — large centered CTA */
+#SoftResetButton {
+    background-color: #FFFFFF;
+    color: #5B3FBF;
+    border: 1px solid #CABFEE;
+    border-radius: 12px;
+    padding: 18px 56px;
+    font-size: 12pt;
+    font-weight: 700;
+    min-width: 280px;
+}
+
+#SoftResetButton:hover {
+    background-color: #F5F2FD;
+    border-color: #9B7EDB;
+}
+
+#SoftResetButton:pressed {
+    background-color: #EDE8FA;
+}
+
+#SoftResetButton:disabled {
+    background-color: #F7F7FB;
+    color: #C8C5D4;
+    border-color: rgba(15, 13, 26, 0.06);
+}
+
+/* ── Status badge ────────────────────────────────────────── */
+
+#StatusBadge {
+    font-size: 8pt;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+#StatusBadge[state="normal"] {
+    color: #166534;
+    background-color: #DCFCE7;
+    border: 1px solid #86EFAC;
+}
+
+#StatusBadge[state="warning"] {
+    color: #92400E;
+    background-color: #FEF3C7;
+    border: 1px solid #FCD34D;
+}
+
+#StatusBadge[state="applying"] {
+    color: #5B3FBF;
+    background-color: #EDE8FA;
+    border: 1px solid #CABFEE;
+}
+
+#StatusBadge[state="error"] {
+    color: #991B1B;
+    background-color: #FEE2E2;
+    border: 1px solid #FCA5A5;
+}
+
+/* ── Score label ─────────────────────────────────────────── */
+
+#ScoreLabel {
+    font-size: 8pt;
+    font-weight: 600;
+    color: #9691AA;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+#ScoreBreakdownItem {
+    font-size: 8pt;
+    color: #4A4761;
+    background-color: transparent;
+    padding: 2px 0;
+}
+
+#ScoreBreakdownDot {
+    font-size: 8pt;
+    color: #92400E;
+    background-color: transparent;
+    padding: 2px 4px 2px 0;
+}
+
+/* ── Table ───────────────────────────────────────────────── */
+
+QTableWidget {
+    background-color: #FFFFFF;
+    gridline-color: rgba(15, 13, 26, 0.05);
+    border: 1px solid rgba(15, 13, 26, 0.08);
+    border-radius: 12px;
+    alternate-background-color: #F7F7FB;
+    font-size: 9pt;
+    color: #4A4761;
+}
+
+QTableWidget::item {
+    padding: 10px 14px;
+    color: #4A4761;
+    border-bottom: 1px solid rgba(15, 13, 26, 0.05);
+    background-color: transparent;
+}
+
+QTableWidget::item:selected {
+    background-color: #EDE8FA;
+    color: #0F0D1A;
+}
+
+QTableWidget::item:hover {
+    background-color: #F5F2FD;
+}
+
+QHeaderView::section {
+    background-color: #FFFFFF;
+    color: #9691AA;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    border: none;
+    border-bottom: 1px solid rgba(15, 13, 26, 0.08);
+    border-right: 1px solid rgba(15, 13, 26, 0.04);
+}
+
+/* ── Log / Status boxes ──────────────────────────────────── */
+
+#LogViewer {
+    background-color: #F7F7FB;
+    color: #4A4761;
+    border: 1px solid rgba(15, 13, 26, 0.07);
+    border-left: 3px solid #CABFEE;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 8pt;
+    selection-background-color: #EDE8FA;
+    selection-color: #0F0D1A;
+}
+
+#StatusBox {
+    background-color: #F7F7FB;
+    color: #9691AA;
+    border: 1px solid rgba(15, 13, 26, 0.07);
+    border-left: 3px solid rgba(15, 13, 26, 0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+    min-height: 48px;
+    font-size: 9pt;
+    font-family: "Cascadia Code", "Consolas", monospace;
+}
+
+#StatusBox[state="running"] {
+    color: #5B3FBF;
+    border-left: 3px solid #9B7EDB;
+    background-color: #EDE8FA;
+}
+
+#StatusBox[state="success"] {
+    color: #166534;
+    border-left: 3px solid #86EFAC;
+    background-color: #DCFCE7;
+}
+
+#StatusBox[state="error"] {
+    color: #991B1B;
+    border-left: 3px solid #FCA5A5;
+    background-color: #FEE2E2;
+}
+
+/* ── Inputs ──────────────────────────────────────────────── */
+
+QLineEdit, QSpinBox, QComboBox {
+    background-color: #F7F7FB;
+    color: #0F0D1A;
+    border: 1px solid rgba(15, 13, 26, 0.10);
+    border-bottom: 1px solid rgba(15, 13, 26, 0.22);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 9pt;
+    selection-background-color: #EDE8FA;
+    selection-color: #0F0D1A;
+}
+
+QLineEdit:focus, QSpinBox:focus, QComboBox:focus {
+    border-color: rgba(91, 63, 191, 0.40);
+    border-bottom: 2px solid #5B3FBF;
+    background-color: #FFFFFF;
+}
+
+QLineEdit:hover, QSpinBox:hover, QComboBox:hover {
+    border-color: rgba(15, 13, 26, 0.20);
+    background-color: #FFFFFF;
+}
+
+QComboBox::drop-down {
+    border: none;
+    background: transparent;
+    width: 22px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(15, 13, 26, 0.12);
+    border-radius: 8px;
+    selection-background-color: #EDE8FA;
+    selection-color: #0F0D1A;
+    outline: none;
+    color: #4A4761;
+    padding: 4px;
+}
+
+QComboBox QAbstractItemView::item {
+    border-radius: 6px;
+    padding: 7px 12px;
+    min-height: 28px;
+}
+
+QSpinBox::up-button, QSpinBox::down-button {
+    background-color: transparent;
+    border: none;
+    width: 18px;
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #F0EFF8;
+    border-radius: 3px;
+}
+
+/* ── CheckBox ────────────────────────────────────────────── */
+
+QCheckBox {
+    color: #4A4761;
+    spacing: 10px;
+    font-size: 9pt;
+}
+
+QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(15, 13, 26, 0.20);
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+QCheckBox::indicator:hover {
+    border-color: #9B7EDB;
+    background-color: #F5F2FD;
+}
+
+QCheckBox::indicator:checked {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #8B5CF6, stop:1 #60A5FA);
+    border-color: #5B3FBF;
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #F7F7FB;
+    border-color: rgba(15, 13, 26, 0.08);
+}
+
+/* ── Scrollbars ──────────────────────────────────────────── */
+
+QScrollBar:vertical {
+    background-color: transparent;
+    width: 8px;
+    margin: 4px 2px;
+    border: none;
+}
+
+QScrollBar::handle:vertical {
+    background-color: rgba(15, 13, 26, 0.12);
+    border-radius: 4px;
+    min-height: 24px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: rgba(15, 13, 26, 0.22);
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical { height: 0px; }
+
+QScrollBar:horizontal {
+    background-color: transparent;
+    height: 8px;
+    margin: 2px 4px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: rgba(15, 13, 26, 0.12);
+    border-radius: 4px;
+    min-width: 24px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background-color: rgba(15, 13, 26, 0.22);
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal { width: 0px; }
+
+/* ── Separators ──────────────────────────────────────────── */
+
+QFrame[frameShape="4"],
+QFrame[frameShape="5"] {
+    color: rgba(15, 13, 26, 0.07);
+    max-height: 1px;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────── */
+
+QToolTip {
+    background-color: #1C1929;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 8pt;
+}
+
+/* ── Progress bar ────────────────────────────────────────── */
+
+QProgressBar {
+    background-color: #F0EFF8;
+    border: none;
+    border-radius: 3px;
+    max-height: 6px;
+}
+
+QProgressBar::chunk {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #8B5CF6, stop:1 #60A5FA);
+    border-radius: 3px;
+}
+
+/* ── Toast ───────────────────────────────────────────────── */
+
+#Toast {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(15, 13, 26, 0.10);
+    border-radius: 12px;
+    padding: 12px 18px;
+}
+
+#Toast[type="error"]   { border-left: 3px solid #FCA5A5; }
+#Toast[type="success"] { border-left: 3px solid #86EFAC; }
+#Toast[type="warning"] { border-left: 3px solid #FCD34D; }
+
+/* ── Recommendation screen ───────────────────────────────── */
+
+#RecommendationHeader {
+    font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: #0F0D1A;
+    padding: 0 0 4px 0;
+    background-color: transparent;
+}
+
+#RecommendationSub {
+    font-size: 9pt;
+    color: #9691AA;
+    padding-bottom: 14px;
+    background-color: transparent;
+}
+
+#ReasonText {
+    color: #9691AA;
+    font-size: 8pt;
+    padding: 6px 0 2px 0;
+    background-color: transparent;
+}
+
+#PrimaryBadge {
+    font-size: 8pt;
+    font-weight: 600;
+    color: #5B3FBF;
+    background-color: #EDE8FA;
+    border: 1px solid #CABFEE;
+    border-radius: 20px;
+    padding: 2px 8px;
+}
+
+/* ── Message box ─────────────────────────────────────────── */
+
+QMessageBox { background-color: #FFFFFF; }
+QMessageBox QLabel { color: #0F0D1A; }

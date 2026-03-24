@@ -1,0 +1,34 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - "v*"          # triggers on v1.0, v1.2.3, etc.
+
+permissions:
+  contents: write     # needed to create a GitHub Release
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build exe with PyInstaller
+        run: pyinstaller lumynex.spec
+
+      - name: Upload exe as Release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/Lumynex.exe
+          generate_release_notes: true
